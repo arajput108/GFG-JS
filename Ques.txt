@@ -1,0 +1,285 @@
+Q1.) (Factorial)= Given a positive integer, N. Find the factorial of N.
+ 
+Example 1:
+Input: N = 5
+Output: 120
+Explanation: 5*4*3*2*1 = 120
+
+Example 2:
+Input: N = 4
+Output: 24
+Explanation: 4*3*2*1 = 24
+
+Your Task: You don't need to read input or print anything. Your task is to complete the function factorial() 
+           which takes an integer N as input parameters and returns an integer, the factorial of N.
+ 
+Exp Time Complx: O(N)
+Exp Space Complx: O(1)
+ Constraints: 0 <= N <= 18
+ 
+Solution:-  class Solution{
+               factorial(N) {
+               if (N === 0 || N === 1) {
+                   return 1; // factorial of 0 and 1 is 1
+               } 
+               else {
+                   let result = 1;
+                   for (let i = 2; i <= N; i++) {
+                       result *= i;
+                   }
+                   return result;
+               }
+             }
+           }
+
+Q2.) (Find Volume)= You have to find exact volume of some objects just by knowing their dimensions. 
+                  Here we will find volume of a cube and a rectangular box by completing the given functions.
+
+Example 1: 
+Input: s = 2
+Output: 8
+
+Example 2: 
+
+Input: l = 1, w = 2, h = 3
+Output: 6
+
+Your Task: Your task is to complete two functions volume(), first function will return volume of 
+           cube (taking dimension of cube as input) and second function will return volume of rectangular 
+           box (taking dimension of rectangular as input). 
+Note: If you are choosing Javascript to submit, please make the function names as cube(s) and rectangular(l, w, h). 
+
+Constraints: 0 <= dimensions <= 100   
+
+Solution:-  class Solution {
+    
+    cube(s) {
+    // write your cube function here with parameter a
+    return s** 3;
+    }
+    
+    rectangular(l, w, h) {
+    // write your rectangular function here with parameter l, b, h
+    return l*w*h;
+    }
+}
+// console.log("Volume of cube with side length 5:", cube(s));
+// console.log("Volume of rectangular box with dimensions 3x4x6:", rectangular(l, w, h));
+
+
+
+Q3.)(Prime Factorization)= Given a number N find the prime factorization of the number.
+
+                  Example 1:
+                  Input: N = 100
+                  Output: 2 2 5 5
+                  Explanation: 100 = 2 * 2 * 5 * 5
+
+                  Example 2:
+                  Input: N = 27
+                  Output: 3 3 3
+                  Explanation: 27 = 3 * 3 * 3
+
+                  Your Task: Your task is to complete the function printPrimeFactotization() which takes a number N in the 
+                             parameter and prints the prime factorization of the number space separated. The new line is 
+                             printed by the driver's code.
+                  Constraint: 2 <= N <= 10000
+
+Solution:- class Solution {
+                printPrimeFactorization(N) {
+                // Function to check if a number is prime
+                let primes=[];
+                    for(let i=2;i<=N;i++){
+                        while(N%i==0){
+                            primes.push(i)
+                            N=N/i
+                        }
+                    }
+                    console.log(primes.join(" "));
+                }
+            }
+
+Q4.) (Anagram)= Given two strings a and b consisting of lowercase characters. The task is to check whether two given strings are an anagram of each other or not. An anagram of a string is another string that contains the same characters, only the order of characters can be different. For example, act and tac are an anagram of each other. Strings a and b can only contain lower case alphabets.
+
+                Note:- If the strings are anagrams you have to return True or else return False
+                        |s| represents the length of string s.
+                Example 1:
+                Input:a = geeksforgeeks, b = forgeeksgeeks
+                Output: YES
+                Explanation:                  Both the string have same characters with
+                        same frequency. So, both are anagrams.
+
+                Example 2:
+                Input:a = allergy, b = allergic
+                Output: NO
+                Explanation: Characters in both the strings are 
+                             not same, so they are not anagrams.
+                Your Task:  You don't need to read input or print anything. Your task is to complete the function isAnagram() which takes the string a and 
+                            string b as input parameter and check if the two strings are an anagram of each other. The function returns true if the strings 
+                            are anagram else it returns false.
+
+                Expected Time Complexity:O(|a|+|b|).
+                Expected Auxiliary Space: O(Number of distinct characters).
+                Constraints: 1 ≤ |a|,|b| ≤ 105
+Solution:- class Solution 
+            {
+                //Function is to check whether two strings are anagram of each other or not.
+                isAnagram(a, b)
+                {
+                    // code here
+                    // If lengths of both strings are not equal, they cannot be anagrams
+                if (a.length !== b.length) {
+                    return false;
+                }
+
+                // Create objects to store the frequency of characters in both strings
+                const freqA = {};
+                const freqB = {};
+
+                // Populate freqA with characters from string a
+                for (let char of a) {
+                    freqA[char] = (freqA[char] || 0) + 1;
+                }
+
+                // Populate freqB with characters from string b
+                for (let char of b) {
+                    freqB[char] = (freqB[char] || 0) + 1;
+                }
+
+                // Compare the frequencies of characters in both strings
+                for (let char in freqA) {
+                    if (freqA[char] !== freqB[char]) {
+                        return false;
+                    }
+                }
+
+                // If all characters have the same frequency in both strings, they are anagrams
+                return true;
+            }
+
+            }
+
+Q5.) (Find one extra character)= Given two strings which are of lengths n and n+1. The second string contains all the character of the 
+                                 first string, but there is one extra character. Your task to find the extra character in the second string.
+
+Example 1:
+
+Input:
+s1 = abcd
+s2 = badce
+Output: 
+e
+Example 2:
+
+Input:
+s1 = efg
+s2 = gtfe
+Output: 
+t
+Your Task:
+
+You only need to complete the function extraChar() that takes s1 and s2 as parameters and returns that extra character
+
+Solution:- class Solution {
+    extraChar(s1, s2) {
+        // write your code here
+        // Create an empty object to store the count of characters in s1
+    const charCount = {};
+
+    // Iterate over each character in s1 and increment its count in charCount
+    for (let char of s1) {
+        charCount[char] = (charCount[char] || 0) + 1;
+    }
+
+    // Iterate over each character in s2
+    for (let char of s2) {
+        // If the character doesn't exist in charCount or its count is 0, it's the extra character
+        if (!charCount[char] || charCount[char] === 0) {
+            return char;
+        } else {
+            // Decrement the count of the character in charCount
+            charCount[char]--;
+        }
+    }
+    }
+}
+
+Q6.) (Print Alphabets)= Given two char c1 and c2. You need to print all the alphabet starting from c1 to c2, 
+                        separated by space, in a single line. 
+                        Example 1:
+                        Input:
+                        c1 = 'a'
+                        c2 = 'z'
+                        Output:  a b c d e f g h i j k l m n o p q r s t u v w x y z
+                        Explanation:  Printed alphabets from a to z.
+
+                        Example 2:
+                        Input:
+                        c1 = "h"
+                        c2 = "u"
+                        Output: h i j k l m n o p q r s t u
+                        Explanation: Printed alphabets from h to u.
+                        Your Task: The input characters c1 and c2 are provided as a parameter to the function alphabets. 
+                                   You need to print the alphabets in a single line, separated by space. The new line is 
+                                   provided by the driver code, so don't provide an extra new line.
+Solution:- class Solution{
+                alphabets(c1,c2)
+                {
+                    // Convert characters to their ASCII codes
+                const start = c1.charCodeAt(0);
+                const end = c2.charCodeAt(0);
+
+                // Loop through ASCII codes and print corresponding characters
+                for (let i = start; i <= end; i++) {
+                    process.stdout.write(String.fromCharCode(i) + " ");
+                }
+                }
+            }
+
+
+
+Q7.) (Binary to Decimal number)= Given a Binary Number B, find its decimal equivalent.
+                                Example 1:
+                                Input: B = 10001000
+                                Output: 136
+
+                                Example 2:
+                                Input: B = 101100
+                                Output: 44
+
+                                Your Task: You don't need to read or print anything. Your task is to complete the 
+                                           function binary_to_decimal() which takes the binary number as string input
+                                           parameter and returns its decimal equivalent.
+ 
+                                Expected Time Complexity: O(K * Log(K)) where K is number of bits in binary number.
+                                Expected Space Complexity: O(1)
+                                Constraints: 1 <= number of bits in binary number  <= 16
+
+Solution:-  class Solution {
+                toDecimal(str) {
+                    // write your code here
+                    let decimal = parseInt(str, 2);
+                // Return the decimal equivalent
+                    return decimal;
+        
+                }
+            }
+
+Q8.) (Decimal to Binary number)= Given a decimal number N in string format, compute its binary equivalent.
+                                Example 1:
+                                Input: N = 7
+                                Output: 111
+
+                                Example 2:
+                                Input: N = 33
+                                Output: 100001
+
+                                Your Task: You have to print its binary form. Don't need to add new line. 
+                                           Complete the function toBinary() which takes the decimal number N as 
+                                           input parameter and prints its binary equivalent.
+Solution:- class Solution {
+                toBinary(str) {
+                    // write your code here
+                    console.log((str >>> 0).toString(2))
+                }
+            }
