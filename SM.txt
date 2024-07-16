@@ -1,0 +1,203 @@
+*********************************Unit=4 String Methods****************************************
+
+<<<<<<<<======Iterating over String======>>>>>>>>
+how we do?
+
+1.) Displaying single char in different line. This is one of the iterating world.
+    let displayMssg= "Namaste, Aakash here";
+
+    for(let char of displayMssg){
+        console.log(char);
+    }
+ 
+2.) Now, it'll show the seprated text upto only the mentioned letter.
+        let displayMssg= "This is Aakash Rajput";
+
+        for(let char of displayMssg){
+            //console.log(char);
+            if(char === "A"){
+                break
+            }
+            else{
+                console.log(char);
+            }
+        }
+3.) If we want to find the number of strings repeating then,
+    let displayMssg= "This is Aakash Rajput";
+    let count= 0;
+
+    for(let char of displayMssg){
+        if(char === "a"){
+            count++;
+        }
+    }
+    console.log(count);
+
+4.) displaying the no. of char.
+   Index= Position of char in given string.
+    let displayMssg= "This is Aakash Rajput";
+
+    for(let i=0; i<=displayMssg.length; i++){
+        console.log(displayMssg[i])
+    }
+
+5.) Finding the index of char t
+        let displayMssg= "This is Aakash Rajput";
+
+        for(let i=0; i<displayMssg.length; i++){
+            if(displayMssg[i] === "a"){
+                console.log(i);
+            }
+        }
+    output= 9,11,16
+
+
+<<<<<<<<======String Method- charAt & charCodeAt======>>>>>>>>
+
+1.) "charAt" use to display the exact index of any char.
+     
+     const dispMssg= "This is Tango here";
+     const index= 10;
+
+     console.log(dispMssg.charAt(index));
+
+2.) This displayMssg can also store as VAR in this form.
+    Also, this is the format how we should the strings and their format.
+    Also, if we don't mention about index then by default we'll get the 1st letter.
+    It gives empty o/p if the index if out of range.
+    
+    const dispMssg= "This is Tango here";
+    const index= 10;
+    const char= (dispMssg.charAt(index));
+
+    console.log(char);
+
+3.) If a func can return a value while calling that func, we can assign that to a var.
+    So, when we write this char, I'm calling that func internally whose name is char.
+    
+4.) To find the ASCII code of any alphabet.
+    const text= "Kevo to piyaji thanaa nainaa me basa lu";
+    const index= 5;
+
+    const asciiCode= text.charCodeAt(index);
+    console.log(asciiCode);
+    OR 
+    console.log(`The Ascii code of v is ${text.charCodeAt(index)}`); //prints only particular index.
+    OR
+    console.log(`The Ascii code of ${text.charAt(index)} is ${asciiCode}`);
+
+
+<<<<<<<<======String Method- index of======>>>>>>>>
+
+Check the existence of index in string. Also, the particular no. of index in the string.
+It'll give -ve for unavailable strings.
+
+1.) const disMssg= "Practising the scripting lang JavaScript";
+    console.log(disMssg.indexOf("p"));
+
+    //To find the index of particular char
+    console.log(disMssg.indexOf("r",1));     //Now, this will search for "r" after index 3.
+
+2.) //Here we've created another variable to store the index value
+      const disMssg= "Practising the scripting lang JavaScript";
+      const index= disMssg.indexOf("s");
+      console.log(index);
+
+3.) Find whether index is available or not.
+        function findChar(text, char){
+            const index= text.indexOf(char)
+            if (index === -1){
+                return "Character not found";
+            }
+            else{
+                return"Character found at index: " + index
+            }
+        }
+
+        const result= findChar("This is Aakash Rajput", "i");
+        console.log(result);
+
+    => Using Arrow function:-
+    const findChar= (text, char)=> text.indexOf(char)=== -1 ? "char not found" : "char found at index: " + text.indexOf(char)
+ 
+    const result= findChar("gmail@.com", "@");
+    console.log(result);
+
+<<<<<<<<======String Method- includes======>>>>>>>>
+It checks whether a given char is present in string or not. Include method will always return a boolean value.
+
+1.) Here, Includes will check whether the given char is in string or not.
+    const disMssg= "Practising the scripting lang JavaScript";
+    console.log(disMssg.includes("hey"));
+
+2.) Finding the vowel.
+Sol:- It is recognising by the var we've declared as vowels, whatever written there in that assigned var.
+    const disMssg= "I love to code in dark mode";
+    const vowels= "aeiouAEIOU";
+
+    for(let char of disMssg){
+        if(vowels.includes(char)){
+            console.log(`${char} is a vowel`);
+        }
+    }
+
+3.) Checking vowel.
+sol:- const disMssg= "I love to code in dark mode";
+      const vowels= "aeiouAEIOU";
+
+      for(let char of disMssg){
+          if(vowels.includes(char)){
+              console.log("This string does have vowels");
+          }
+          else{
+              console.log("This string doesn't have vowels");
+          }
+      }
+
+//This is quite time taking & irritating, So for this we'll declare a var.
+The result will be depended upon the flag var.
+    const disMssg= "I love to code in dark mode";
+    const vowels= "aeiouAEIOU";
+    let flag= "true";  
+
+      for(let char of disMssg){
+          if(vowels.includes(char)){
+            flag= true;
+            break
+          }
+          else{
+            flag= false;
+          }
+      }
+    if(flag=== true){
+        console.log("This string does have vowels");
+    }
+    else{
+        console.log("This string doesn't have vowels");
+    }
+
+<<<<<<<<======String Method- to Uppercaste & toLowercaste======>>>>>>>>
+
+1.) const mssg= "This is Aakash Rajput and this is my first program in JS";
+    console.log(mssg);
+    console.log(mssg.toLowerCase());
+    console.log(mssg.toUpperCase());
+
+
+<<<<<<<<======String Method- Substring======>>>>>>>>
+//Depricated Method= No longer in use and mostly unsupported by the browsers.
+If the username is too long and we want to show it in short/dotted form then
+
+1.) const Uname= "Aakash Rajput";
+
+    const subString= Uname.substring(0,8);
+    console.log(subString);
+    Also,  console.log(subString + ".....");
+    
+<<<<<<<<======String Method- Trim======>>>>>>>>
+
+// Space is also considered as a Character.
+1.) const text= "     This is Mike Bravo speaking.    ";
+    console.log(text.substring(0,17));  //This will print all the char including the blank space.
+
+    console.log(text.trim(0,17)); // This will trim all the blank space and will print only the char.
