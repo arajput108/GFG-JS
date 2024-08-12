@@ -1,0 +1,150 @@
+**********************************Unit=1 BASICS OF JS****************************************
+
+// <<<<<<<<<<<=======DATA TYPES=========>>>>>>>>>>
+
+// Primitive Data type= When a single value is assigned to a var is called as Primtive data type.
+// Non-Primitive Data type= When multiple values can be assigned to a data type is called Non-Primtive data type.
+
+//<---------STRING------->
+// var result;
+// result= "Testing 1 2 3";
+// result= "Testing 101 401 501"; value updated 
+
+// console.log(result);
+//<---------------->
+
+// let table;
+// table= "Testing 3 4 5";
+
+// console.log(table);
+//<----------------->
+
+// let text;
+// text= " JS is best !!";
+
+// console.log(text);
+
+//<--------NUMBER------->
+// let age= 22;
+// console.log(age);
+// console.log(typeof age);
+
+//<--------BOOLEAN--------->
+// let productinCart= false;
+//if the product is adde in cart= True, otherwise False
+// console.log(productinCart);
+
+//<--------UNDEFINED--------->
+// let userName;
+// console.log(typeof userName);
+
+//<--------NULL--------->
+// let noValue= null;
+// console.log(noValue);
+// console.log(typeof noValue);
+
+//<--------OBJECT(npdt)--------->
+// const Mydetails= {F_name: "Aakash", L_name: "Rajput", Lang:"JavaScript", Domain:"Cyber Sec"}
+// console.log(Mydetails);
+
+//let numbers= [1,2,3,4,5,6,7];
+//console.log(typeof numbers);
+
+//<--------CONCATENATION--------->
+// let myName= "Mike";
+// let myAge= 25;
+// let print= "This side " + myName + " speaking" + " and my Age is "+ myAge;
+// console.log(print);
+
+//-----TEMPLATE LITERAL------
+// let speakerName= "Bravo"; 
+// let userFrequency= 99.8;
+
+// let finalFrequency= `This side ${speakerName} speaking from frequency of ${userFrequency}`;
+// console.log(finalFrequency);
+
+// let text = `My name is ${speakerName} and I am ${userFrequency} years old.`;
+// console.log(text);
+
+// let multilines= `ॐ नमः पार्वती पतये हर हर महादेव देव
+// सियाव्वर रामचन्द्र जी की जय
+// राजा रामचन्द्र जी की जय
+// बोल बजरंग बली की जय
+// ॐ विष्णुपताय नमः 
+// जय श्री राम `;
+
+// console.log(multilines);
+
+
+// <<<<<<<<<<<=======ARITHMETIC OPERATORS=========>>>>>>>>>>
+// const a= 'Fire';
+// const b= 'Earth';
+
+// console.log(a+b);
+// console.log(a-b);
+// console.log(a*b);
+// console.log(a/b);
+// console.log(a%b);
+// console.log(a**b);
+// console.log(a ** 2);
+// console.log(b ** 4); 
+// NaN= It stands for "Not a Number". when the var are not no.
+
+// <<<<<<<<<<<=======TYPE CONVERSIONS=========>>>>>>>>>>
+//Type Conversion to Number, string & Boolean
+// const a= 5;
+// const b= 7;
+
+// console.log(Number(a) + Number(b)); 
+// console.log(Number("5") - Number("7"));
+
+// const c= Number(a);
+// const d= Number(b);
+// console.log(c + d);
+
+// const c= String(a); //"a";
+// const d= String(b); //("b");
+
+// console.log(typeof a);
+// console.log(typeof b);
+// console.log(typeof c);
+// console.log(typeof d);
+
+//-----Boolean Conversion------
+// console.log(Boolean(a));
+// console.log(Boolean(""));
+
+
+// <<<<<<<<<<<=======READLINE-SYNC=========>>>>>>>>>>
+/**
+ * Read data from user
+ */
+const readlineSync= require("readline-sync");
+// Now we'll ask smthing from the user.
+readlineSync.question("May I know your name? ")
+
+// const userName= realineSync.question("May I know your name? ");
+// const userAge= realineSync.question("May I know your age? ");
+// console.log(userName);
+// console.log("Thank you for providing age..");
+
+--------------------------------------------------------<<NOTE 1:>>----------------------------------------------------------------
+In JavaScript, the == operator is known as the equality operator, which performs type coercion if the operands are of different types before comparing their values. On the other hand, the === operator is known as the strict equality operator, which does not perform type coercion and checks if both the values and types of the operands are the same.
+
+Let's break down why "01" == 1 evaluates to true and "01" === 1 evaluates to false:
+
+"01" == 1:
+
+Here, the string "01" is being compared to the number 1.
+JavaScript performs type coercion because the operands are of different types (string and number).
+During type coercion, the string "01" is converted to a number.
+After conversion, both operands have the same type (number), and their values are equal (1).
+So, the result of the comparison is true.
+"01" === 1:
+
+Here, the strict equality operator === is used, which does not perform type coercion.
+Since the operands are of different types (string and number), they are not considered equal under strict equality.
+The string "01" is not equal to the number 1 when both the value and type are compared.
+So, the result of the comparison is false.
+In summary, "01" == 1 evaluates to true because JavaScript performs type coercion, converting the string "01" to a number before comparison. However, "01" === 1 evaluates to false because the strict equality operator does not perform type coercion, and the operands are of different types.
+------------------------------------------------------------------------------------------------------------------------------------
