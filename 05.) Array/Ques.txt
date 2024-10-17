@@ -1,0 +1,130 @@
+1.) Given an array arr[] of size N, check if it is sorted in non-decreasing order or not. 
+    Example 1:
+    Input: N = 5
+    arr[] = {10, 20, 30, 40, 50}
+    Output: 1
+    Explanation: The given array is sorted.
+
+    Example 2:
+    Input: N = 6
+    arr[] = {90, 80, 100, 70, 40, 30}
+    Output: 0
+    Explanation: The given array is not sorted.
+
+    Your Task: You don't need to read input or print anything. Your task is to complete the function arraySortedOrNot() 
+               which takes the arr[] and N as input parameters and returns a boolean value (true if it is sorted otherwise 
+               false).
+    Expected Time Complexity: O(N)
+    Expected Auxiliary Space: O(1)
+
+    Constraints: 1 ≤ N ≤ 106 - 109 ≤ arr[i] ≤ 109
+
+Sol:- class Solution {
+            arraySortedOrNot(arr, n) {
+            // Traverse the array and check if each element is less than or equal to the next element
+            for (let i = 0; i < n - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    return false; // If any element is greater than the next, return false
+                }
+            }
+            return true; // If all elements are in non-decreasing order, return true
+
+            }
+        }
+O/p)= For Input: 5
+      10 20 30 40 50
+      Your Output: 1
+      Expected Output: 1
+
+
+2.) Given an integer array and another integer element. The task is to find if the given element is present in array or not.
+
+    Example 1:
+    Input: n = 4
+    arr[] = {1,2,3,4}
+    x = 3
+    Output: 2
+    Explanation: There is one test case 
+    with array as {1, 2, 3 4} and element 
+    to be searched as 3.  Since 3 is 
+    present at index 2, output is 2.
+
+    Example 2:
+    Input: n= 5
+    arr[] = {1,2,3,4,5}
+    x = 5
+    Output: 4
+    Explanation: For array elements 
+    {1,2,3,4,5} element to be searched 
+    is 5 and it is at index 4. So, the 
+    output is 4.
+
+    Your Task: The task is to complete the function search() which takes the array arr[], its size N and the element X as inputs and 
+               returns the index of first occurrence of X in the given array. If the element X does not exist in the array, the function 
+               should return -1.
+    Expected Time Complexity: O(n).
+    Expected Auxiliary Space: O(1). 
+
+    Constraints:
+    1 <= n <= 106
+    0 <= arr[i] <= 106
+    0 <= x <= 105
+
+Sol:- class Solution {
+            search(arr, N, X) {
+            // Iterate through the array to find the first occurrence of X
+            for (let i = 0; i < N; i++) {
+                if (arr[i] === X) {
+                    return i; // Return the index if X is found
+                }
+            }
+            return -1; // Return -1 if X is not found
+
+            }
+        }
+O/p)= For Input: 4
+       1 2 3 4
+        3
+      Your Output: 2
+      Expected Output: 2
+
+
+3.) Given an array a[], find the size of the array.
+    Example 1:
+    Input: a[] = {1, 2, 3}
+    Output: 3
+    Explanation: The size of the array is 3.
+
+    Example 2:
+    Input: a[] = {1, 2, 3, 5, 4}
+    Output: 5
+    Explanation: The size of the array is 5.
+
+    Your Task: Your task is to find the size of the array a[].
+
+Sol:- 
+    Method1= function arraySize(arr) {
+                let count = 0;
+                for (let i = 0; arr[i] !== undefined; i++) {
+                    count++;
+                }
+                return count;
+            }
+
+// Test cases
+console.log(arraySize([1, 2, 3])); // Output: 3
+console.log(arraySize([1, 2, 3, 5, 4])); // Output: 5
+
+    Method2=function arraySize(arr) {
+                return arr.length;
+            }
+
+            // Test cases
+            console.log(arraySize([1, 2, 3])); // Output: 3
+            console.log(arraySize([1, 2, 3, 5, 4])); // Output: 5
+
+    Method3=  function findSize(a) {
+                return a.length;
+            }
+        
+
