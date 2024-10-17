@@ -1,0 +1,388 @@
+// const str= "hello world";
+// ??????????????????????
+// console.log(str.substring(1,4));
+
+
+const str= "hello world";
+
+console.log(str.substring(-3));
+
+
+*********************************Unit=5 Arrays (Non-Primitve Data types)****************************************
+
+
+<<<<<<<<----------------Iterating over Array------------->>>>>>>>
+
+Iteration:- Iterating over an array means accessing each element of the array one by one, 
+            typically to perform some operation on each element. This is a fundamental concept in programming 
+            and is used in various tasks such as searching, modifying, or simply reading the values of the elements in the array.
+            let array = [1, 2, 3, 4, 5];
+
+// Using a for loop
+for (let i = 0; i < array.length; i++) {
+    console.log(array[i]);
+}
+
+// Using forEach method
+array.forEach(element => {
+    console.log(element);
+});
+
+// Using for...of loop
+for (let element of array) {
+    console.log(element);
+}
+
+1.) Array can contain all obj, strings & numeric values.
+    let s1= "Aakash";
+    let s2= "Rajput";
+    let s3= "Vijay";
+    let s4= "Hanuman";
+
+    let stdNames= ["Aakash", "Rajput", "Vijay", "Hanuman", 1, 2, 3, ["array", "inside", "array", "here"], {lang: "English"}];
+    console.log(stdNames);
+
+2.) Printing the selected element from given array with index.
+    let stdNames= ["Aakash", "Rajput", "Vijay", "Hanuman"];
+    console.log(stdNames[0]);
+
+3.) We can print O/p but for that we've to write console again & again, rather that we can write in loop form.
+    //DRY- Don't Repeat Yourself
+
+    let stdNames= ["Aakash", "Rajput", "Vijay", "Hanuman"];
+    for (let i= 0; i<4; i++){
+    console.log(stdNames[i])     
+    }
+
+    //Now we made the loop limit change dynamically.
+    let stdNames= ["Aakash", "Rajput", "Vijay", "Hanuman", "Kirti", "Shaurya", "Kritika"];
+
+    let arrLength= stdNames.length;
+    console.log(arrLength);
+
+    for (let i= 0; i<arrLength; i++){
+        console.log(stdNames[i]) 
+    }
+    = Now, this will print the result and doesn't matter the no. of elements in array.
+    
+
+4.) Let of= It'll give every single element that is there in the Array/String.
+    Now, printing the same result using the "for let of"
+    
+    let stdNames= ["Aakash", "Rajput", "Vijay", "Hanuman", "Kirti", "Shaurya", "Kritika"];
+    for (let name of stdNames) {
+        console.log(name);
+    }
+    //This variable "name" will be equal each name assigned in this var.
+
+5.) Let in:- It'll give the index in the Array/String.
+    To find the index of complete string:-
+    let stdNames= ["Aakash", "Rajput", "Ayush", "Vijay", "Hanuman", "Kirti", "Shaurya", "Kritika"];
+    for (let name in stdNames) {
+        console.log(name);
+    }
+    o/p= 7
+
+<<<<<<<<----------------Array- Push & Concat------------->>>>>>>>
+
+Array has basically an extensive supoort of Methods.
+Mutable Object= when the object can be changed.
+Immutable= just opp
+
+1.) Pushing(add) in Array using Push method. Here, we're calling the function (push) where argument can be the data I want to add.
+    let fruits= ["mango", "grapes", "banana", "pomegrante"];
+    console.log(fruits);
+
+    //Pushing the word into Array.
+    fruits.push("Watermelon");
+    console.log(fruits);
+
+2.) Concat method
+    let arr1= [1,2,3];
+    let arr2= [4,5,6];
+    let arr3= [7,8,9];
+
+    let arr4= arr1.concat(arr2);       //to concat 2 arrays
+    console.log(arr3);
+
+    let arr5= arr1.concat(arr2, arr3);
+    console.log(arr5);                 // to concat more than 2 array.
+
+
+<<<<<<<<----------------Array Method- Pop & Slice------------->>>>>>>>
+Deletion from Array
+Slice can do both Push & Pop.
+PoP always remove & return the last element of the Array.
+
+1.) let courses= ["HTML", "CSS", "JS", "React", "Python", "SQL"];
+    console.log("Courses-", courses);
+    //This will printthe total no. of courses using the function "courses"
+
+    console.log("Updated courses-", courses);
+    //This will print only the courses which are newly Updated.
+
+    let removedItem= courses.pop();
+    console.log("RI-", removedItem);
+    //This will print only the courses which are removed using the "courses.pop()".
+
+    
+    removedItem= courses.pop();
+    console.log("RI Again-", removedItem);
+    console.log("Updated courses Again-", courses);
+    //Again we poped the Python from courses list.
+
+2.) Slice= It is used for the selected arrays to delete them.
+    let courses= ["HTML", "CSS", "JS", "React", "Python", "SQL"];
+    let value= courses.slice(3,4);
+    console.log(courses);
+    console.log("Deleted Courses-", value);
+    console.log("Type of Array-", typeof value);
+
+3.) To make the selected text "CAPITAL" or mostly in "User Authentication" we'll need this.
+    let name= "vajra";
+    let firstUpperCaseChar= name[0].toUpperCase();
+    
+    let capitalizeName= firstUpperCaseChar + name.slice(1);
+    console.log(capitalizeName);
+    o/p= Vajra 
+
+3.) Splice= Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
+            @returns — An array containing the elements that were deleted.
+            can remove and add something.
+
+            //Here, we printed the array except the index of (4,2)
+            let courses= ["html", "css", "js", "reactjs", "jquery", "vue", "node"];
+            courses.splice(4,2);
+            console.log(courses);
+
+            For adding using "Splice"
+            let courses= ["html", "js", "reactjs", "jquery", "vue", "node"];
+            courses.splice(1,0, "css");
+            console.log(courses);
+   
+<<<<<<<<----------------Array Method- include------------->>>>>>>>
+Element found= True 
+Not found= False
+
+1.) const size= ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
+    const readlineSync= require("readline-sync");
+    const UserSize= readlineSync("Your size (S/M/L/XL/XXL/XXXL)");
+
+    const isSizeAvailable= size.includes(UserSize);
+    console.log(isSizeAvailable);  
+
+    o/p= if size available then, the o/p will be true otherwise false.
+
+2.) To find whether the size is or not.
+
+    const size= ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
+    const readlineSync= require("readline-sync");
+    const UserSize= readlineSync("Your size (S/M/L/XL/XXL/XXXL)");
+
+    const isSizeAvailable= size.includes(UserSize);
+    if (isSizeAvailable){
+        console.log("Size is available");
+    }
+    else{
+        console.log("Size is Unavailable');
+    }
+
+<<<<<<<<----------------Array Method- Sort------------->>>>>>>>
+:- When we want to sort he Array in Ascending or Descending order. So,in this method can be applied on array and which 
+   does the Sorting in place.
+   This method we will use for sorting the products on E-commmerce website/app.
+
+1.) Suppose you've to sort an array usinf sort method.
+    const fruits= ["mango", "grapes", "banana", "pomegrante", "apple"];
+    fruits.sort();
+    console.log(fruits);
+    o/p= alphabetically arranged.(As per the UTF-16 representation. It converts the no./alphabets into string and then finds the UTF-16 rep in table and rep accordingly.)
+
+2.) const numbers= ["5", "9", "3","78", "23"];
+    numbers.sort();
+    console.log(numbers);
+    o/p= 23, 3, 5, 78, 9 (As per the UTF-16 representation.)
+
+3.) To arrange only in Ascending order.
+    const numbers= [45, 8, 42, 785, 95, 78, 28, 75, 81, 42, 72, 405, 95];
+
+    function sortinAscendingOrder(a,b){
+        return a-b;
+    }
+    numbers.sort(sortinAscendingOrder);
+    console.log(numbers);
+    
+    o/p= Arranged in Ascending order.( When callback function was not declared it simplyusing the UTF-16. After callback function, it is compairing 2 values a&b. And simply finding which one among them are +ve or -ve and simply place them.)
+    
+    For Descending order, simply apply the same logic. 
+    function sortinAscendingOrder(a,b){
+        return b-a;
+    }
+    numbers.sort(sortinDescendingOrder);
+    console.log(numbers);
+
+
+<<<<<<<<----------------Array Method- Split & Join------------->>>>>>>>
+:- Split & Join always works in conjuction with each other. 
+   Split is basically a method of string. 
+   Joint is the method of Array.
+   ->     Split will convert your string into ARRAY of chars
+          Join will convert ARRAY of chars back into String.
+We can liertally add any sign or whatever we want in b/w this arrOfChar.join("ANYTHING");
+
+
+1.) To reverse the string.
+    const inputStr= "madam";
+    const arr= [1,2,3,4,5];
+    console.log(arr.reverse());     o/p= [5,4,3,2,1]
+    
+2.) Wokring of SPLIT method.
+    const inputStr= "madam may i come in";
+    const arrOfChar= inputStr.split(" ");
+    console.log(arrOfChar);
+
+o/p= " " this will bring the words seprately in commas.
+     "" this will bring the each char seprately in commas.
+
+3.) Converting array into Plaindrome
+    const inputStr= "Aakash";
+    const arrOfChar= inputStr.split("");
+    console.log(arrOfChar.reverse());
+    
+4.) Join each char differently.
+    const inputStr= "Aakash";
+    const arrOfChar= inputStr.split("");
+    arrOfChar.reverse();     //(Adding this reverse will make turn Aakash in opposite way.)
+            or
+    const reversedStr= arrOfChar.join("");
+    console.log(reversedStr);   
+    O/p= hsakaA
+
+    console.log(arrOfChar.join());
+    O/p= A,a,k,a,s,h
+
+    console.log(arrOfChar.join(""));
+    O/p= Aakash
+
+
+<<<<<<<<----------------Array Method- Spread Array------------->>>>>>>>
+1.) To spread thwe array or unpacking the array. It also avoid mutation(not changing the array).
+    const arr= [1,2,3,4,5];
+    console.log("array -", arr);
+    console.log(...arr); 
+
+    o/p= array - [ 1, 2, 3, 4, 5 ]
+         1 2 3 4 5  
+    
+2.) Apart from using these add or concat method. We can use the SPREAD method to add these array together. 
+    We can also add any required value in b/w or anywhere in the dec var "const 3".
+   const arr1 = [1,2,3,4,5];
+   const arr2 = [6,7,8,9,10];
+
+   const arr3 = [...arr1, ...arr2, 11, 12 & 13];
+   console.log(arr3); 
+
+   o/p= [
+           1,  2, 3, 4,  5,
+           6,  7, 8, 9, 10,
+          11, 12
+        ]
+    
+    
+2.1) Here, comes the concept of mutation where, even after printing the arr3 we can print the 
+     arr1 which will print the result apart from the arr3 rather than including into the arrr3.
+ 
+     SPREAD array is used in both Array & Object.
+      
+    const arr1 = [1,2,3,4,5];
+    const arr2 = [6,7,8,9,10];
+
+   const arr3 = [...arr1, ...arr2, 11, 12 & 13];
+   console.log(arr3); 
+
+   o/p= [
+           1,  2, 3, 4,  5,
+           6,  7, 8, 9, 10,
+          11, 12
+        ]
+        [ 1, 2, 3, 4, 5 ]
+
+
+<<<<<<<<----------------Array Method- Destructing Array------------->>>>>>>>
+1.) The assignment allows us to break apart (or divide) data, whether it comes from an object that can be looped through 
+    (like a list or a string) or one that cannot (like a single number). Once the data is divided, we can then use each piece 
+    separately whenever we need it. This approach makes our code shorter and easier to understand.
+    When we fetch data form an API, then the data is in form of Object(Nested Object- objects inside an object).
+    To store that Nested obj, we've to unpack the obje and store that in other var.
+    Ex:- 
+    1.1)const numbers= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const[a,b,c, courses]=[1,2,3, ["html", "css", "js"]];
+
+        console.log(a);
+        console.log(b); 
+        console.log(c);
+        console.log(courses); 
+        O/p= 1
+             2
+             3
+             [ 'html', 'css', 'js' ]
+
+    Ex:- 
+    1.2)const numbers= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const[ , , , courses]=[1,2,3, ["html", "css", "js"]];
+ 
+        console.log(courses);    
+        o/p= [ 'html', 'css', 'js' ]
+        :- The blank spaces will not be store anywhere, only courses will.
+
+        <-------------------OR WE CAN WRITE THIS AS--------------------->
+    1.3)const arr= [1, 2, 3, 4,["html", "css", "js"], 5, 6, 7];
+        const[ , , , ,courses]= arr;
+ 
+        console.log(courses);   
+        o/p= [ 'html', 'css', 'js' ]
+        :- The output of the array in 2nd line will be based on the index, we write in the const arr.   
+
+    1.4)    Suppose we want only 6 then:- 
+        const arr= [1, 2, 3, 4,["html", "css", "js"], 5, 6, 7];
+        const[ , , , ,courses, , a]= arr;
+        
+        console.log(a);   
+        console.log(courses);   
+        o/p= 6
+             [ 'html', 'css', 'js' ]
+
+    1.5) Now, we want to print the no.s & courses separately,we'll use REST func.
+        const arr= [["html", "css", "js"], 1, 2, 3, 4, 5, 6, 7];
+        const[courses, ...rest]= arr;
+        
+        console.log(rest);   
+        console.log(courses);   
+        o/p= [1, 2, 3, 4, 5, 6, 7]
+             [ 'html', 'css', 'js' ]
+        Note:- Always, remember REST element should always be the last elementin DESTRUCTING Array.
+
+    1.6)Now, we don't want to print the 1,2,3 for that we'll assign them to a&b other array 
+        will use REST func.
+        const arr= [["html", "css", "js"], 1, 2, 3, 4, 5, 6, 7];
+        const[courses, a, b, c, ...rest]= arr;
+        
+        console.log(rest);   
+        console.log(courses);   
+        o/p= [4, 5, 6, 7]
+             [ 'html', 'css', 'js' ]   
+    
+    1.7) Swapping the numbers.
+         By using restructuring, we swaped their values, basically we unpacked or open the value.
+        let a= 5;
+        let b= 7; 
+
+        [a,b] = [b,a];
+
+        console.log("value of A=", a);
+        console.log("value of B=", b);
+        O/p=  value of A= 7
+              value of B= 5
+
+
+<<<<<<<<----------------Array Method- Copy by Reference------------->>>>>>>>
